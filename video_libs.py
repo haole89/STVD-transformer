@@ -266,7 +266,7 @@ def reformatting(input_path, input_file, output_path):
 simulate the video speeding using FPS drops
 
 """
-def video_speeding(input_path, input_file, output_path, start_copy, copy_length):
+def video_speeding(input_path, input_file, output_path, output_file, start_copy, copy_length):
 
     fps_list = random_walk()
     start_copy = start_copy
@@ -281,8 +281,7 @@ def video_speeding(input_path, input_file, output_path, start_copy, copy_length)
 
   
     fourcc = cv2.VideoWriter_fourcc(*'DIVX')
-    out_filename = input_file.split('.')[0] + "_E.mp4"
-    output = os.path.join(output_path, out_filename)
+    output = os.path.join(output_path, output_file)
 
     out = cv2.VideoWriter(output, fourcc, fps, (width, height))
 
