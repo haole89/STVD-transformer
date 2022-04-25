@@ -61,8 +61,6 @@ def generate_positive():
             copy_length= copy_length
         )
 
-        break
-
     return
 
 def post_processing():
