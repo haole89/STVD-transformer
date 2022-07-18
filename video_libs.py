@@ -247,12 +247,12 @@ beta: 20
 resolution: 192x144
 bitrate: 28k
 """
-def reformatting(input_path, input_file, output_path):
+def reformatting(input_path, input_file, output_path, output_file):
     resolution = "192x144"
     compress = "28k"
     buff = "32k"
     input_video = os.path.join(input_path, input_file)
-    new_filename = os.path.join(output_path, input_file)
+    new_filename = os.path.join(output_path, output_file)
 
     str_command = "ffmpeg -i " + input_video + " -s " + str(resolution) \
                 + " -c:v libx264 -x264-params \"nal-hrd=cbr\" -b:v " + compress  \

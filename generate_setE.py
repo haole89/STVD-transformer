@@ -8,7 +8,7 @@ Step 1: drop FPS with video speeding
 step 2: re-formate video by reducing the video bitrate and resolution
 
 Only apply video speeding to the positive of set E
-For the negative, it makes no sense
+For the negative, cloning the negative set A with downscaling
 
 """
 
@@ -70,14 +70,33 @@ def post_processing():
 
     for roots, dirs, files in os.walk(input_path):
         for name in files:            
-            reformatting(input_path, name, output_path)
+            reformatting(input_path, name, output_path, name)
+    return
+'''
+For the negative videos, we just apply downscalling to make them are consitient
+with the post-processing positive videos
+'''
+
+def generate_negative():
+    
+    input_path = r"E:\stvd\set_A\negative"
+    output_path = r"E:\stvd\set_E\negative"
+
+    for roots, dirs, files in os.walk(input_path):
+        for name in files:
+            new_name= name.split('.')[0] + "_E1.mp4"
+            reformatting(input_path, name, output_path, new_name)
+
     return
 
 def main():
 
     # generate_file()    
-    generate_positive()
+    # generate_positive()
     # post_processing()
+
+    generate_negative()
+
    
 
 if __name__ == '__main__':
